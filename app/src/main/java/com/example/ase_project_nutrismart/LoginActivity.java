@@ -3,7 +3,9 @@ package com.example.ase_project_nutrismart;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,8 +28,12 @@ login.setOnClickListener(new View.OnClickListener() {
     public void onClick(View view) {
         if(validateFields())
         {
+//            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
+//            SharedPreferences.Editor editor = prefs.edit();
+////            editor.putBoolean("LOGIN", false);
             Intent signup=new Intent(LoginActivity.this,HomeActvity.class);
             startActivity(signup);
+
         }
 
     }

@@ -11,14 +11,16 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
 public class SignupActivity extends AppCompatActivity {
-EditText et_dob;
+EditText et_dob,et_name,et_email,et_height,et_weight,et_password;
 Button btn_create_new_user;
+Spinner sp_actvity;
     final Calendar myCalendar= Calendar.getInstance();
 
     @Override
@@ -26,12 +28,23 @@ Button btn_create_new_user;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         et_dob=findViewById(R.id.et_dob);
+        et_name=findViewById(R.id.et_name);
+        et_email=findViewById(R.id.et_email);
+        et_height=findViewById(R.id.et_height);
+        et_weight=findViewById(R.id.et_weight);
+        et_password=findViewById(R.id.et_password);
+        sp_actvity=findViewById(R.id.sp_actvity);
+
         btn_create_new_user=findViewById(R.id.btn_create_new_user);
         btn_create_new_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent signup=new Intent(SignupActivity.this,HomeActvity.class);
-                startActivity(signup);
+                if(validate())
+                {
+                    Intent signup=new Intent(SignupActivity.this,HomeActvity.class);
+                    startActivity(signup);
+                }
+
             }
         });
         DatePickerDialog.OnDateSetListener date =new DatePickerDialog.OnDateSetListener() {
@@ -64,6 +77,51 @@ Button btn_create_new_user;
                 android.R.layout.simple_spinner_item, arraySpinner);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         s.setAdapter(adapter);
+    }
+
+    private boolean validate() {
+        if(et_name.getText().toString().isEmpty())
+        {
+            Toast.makeText(this,"Please enter your name",Toast.LENGTH_SHORT).show();
+           return false;
+        }
+        else if(et_email.getText().toString().isEmpty())
+        {
+            Toast.makeText(this,"Please enter your Email",Toast.LENGTH_SHORT).show();
+
+            return false;
+
+        }
+        else if(et_dob.getText().toString().isEmpty())
+        {
+            Toast.makeText(this,"Please enter your Dob",Toast.LENGTH_SHORT).show();
+
+            return false;
+
+        }
+        else if(et_height.getText().toString().isEmpty())
+        {
+            Toast.makeText(this,"Please enter your height",Toast.LENGTH_SHORT).show();
+
+            return false;
+
+        }
+        else if(et_weight.getText().toString().isEmpty())
+        {
+            Toast.makeText(this,"Please enter your weight",Toast.LENGTH_SHORT).show();
+
+            return false;
+
+        }
+        else if (sp_actvity.getSelectedItem().toString().equals("Choose your activity level"))
+        {
+            Toast.makeText(this,"Please select your activity level",Toast.LENGTH_SHORT).show();
+
+            return false;
+
+        }
+
+        return true;
     }
 
     private void updateLabel(){
