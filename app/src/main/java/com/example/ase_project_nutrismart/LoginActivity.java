@@ -14,6 +14,7 @@ import android.widget.Toast;
 public class LoginActivity extends AppCompatActivity {
 Button login;
 EditText et_email,et_password;
+    String Login="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,11 +29,13 @@ login.setOnClickListener(new View.OnClickListener() {
     public void onClick(View view) {
         if(validateFields())
         {
-//            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
-//            SharedPreferences.Editor editor = prefs.edit();
-////            editor.putBoolean("LOGIN", false);
-            Intent signup=new Intent(LoginActivity.this,HomeActvity.class);
-            startActivity(signup);
+
+               Intent signup=new Intent(LoginActivity.this,HomeActvity.class);
+
+
+               startActivity(signup);
+
+
 
         }
 

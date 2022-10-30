@@ -3,37 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_tracker">
+
+    app:startDestination="@+id/tracker">
 
     <fragment
-        android:id="@+id/nav_tracker"
+        android:id="@+id/tracker"
         android:name="com.example.ase_project_nutrismart.ui.home.HomeFragment"
         android:label="@string/menu_tracker"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_grocery"
+        android:id="@+id/grocery"
         android:name="com.example.ase_project_nutrismart.ui.gallery.GalleryFragment"
         android:label="@string/menu_grocery"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
-        android:id="@+id/nav_expiry"
+        android:id="@+id/expiry"
         android:name="com.example.ase_project_nutrismart.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_expire"
         tools:layout="@layout/fragment_slideshow" />
 
 
     <fragment
-        android:id="@+id/nav_profile"
+        android:id="@+id/profile"
         android:name="com.example.ase_project_nutrismart.ProfileFragment"
         android:label="@string/menu_profile"
         tools:layout="@layout/fragment_profile" />
 
-    <dialog
-        android:id="@+id/my_dialog"
-        android:name="com.example.ase_project_nutrismart.ui.MyDialogFragment"
-        tools:layout="@layout/my_dialog" />
 
 
 </navigation>

@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/progressbg.xml" value="0.1575" />
         <entry key="app/src/main/res/drawable/side_nav_bar.xml" value="0.147" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_home_actvity.xml" value="0.13697916666666668" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.13697916666666668" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.13697916666666668" />
@@ -13,10 +15,11 @@
         <entry key="app/src/main/res/layout/content_home_actvity.xml" value="0.13697916666666668" />
         <entry key="app/src/main/res/layout/dialog.xml" value="0.13697916666666668" />
         <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.13697916666666668" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.13697916666666668" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_my_dialog.xml" value="0.1390625" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_slideshow.xml" value="0.10625" />
+        <entry key="app/src/main/res/layout/nav_header.xml" value="0.9392857142857143" />
         <entry key="app/src/main/res/layout/nav_header_home_actvity.xml" value="0.13697916666666668" />
         <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.25" />
         <entry key="app/src/main/res/menu/home_actvity.xml" value="0.13697916666666668" />

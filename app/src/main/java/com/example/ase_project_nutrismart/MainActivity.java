@@ -16,13 +16,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         btn_create_new_user=findViewById(R.id.btn_create_new_user);
         btn_login=findViewById(R.id.btn_login);
+        Bundle b=new Bundle();
+        b.getString("isLogin");
 
 
         btn_create_new_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent signup=new Intent(MainActivity.this,SignupActivity.class);
-                startActivity(signup);
+                startActivity(signup,b);
 
 
 
@@ -34,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent login=new Intent(MainActivity.this,LoginActivity.class);
-                startActivity(login);
+                startActivity(login,b);
 
             }
         });

@@ -2,6 +2,7 @@ package com.example.ase_project_nutrismart;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,17 +12,16 @@ import android.preference.PreferenceManager;
 import android.window.SplashScreen;
 
 public class SplashActivity extends AppCompatActivity {
-
+    SharedPreferences pref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putBoolean("LOGIN", true);
+        pref = getSharedPreferences("PREFS", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
 
+//        editor.putString("isLogin", "0");
         editor.commit();
-
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
 
             /*
@@ -33,14 +33,17 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
                 // This method will be executed once the timer is over
                 // Start your app main activity
-//                if (prefs.getBoolean("LOGIN", true)) {
-//                    Intent i = new Intent(SplashActivity.this,HomeActvity.class);
-//                    startActivity(i);
-//                }
-//                else{
-                    Intent i = new Intent(SplashActivity.this, MainActivity.class);
+                if (pref.getString("isLogin","").equals("200")) {
+                    Intent i = new Intent(SplashActivity.this,HomeActvity.class);
+
                     startActivity(i);
-//                }
+                }
+                else{
+
+                    Intent i = new Intent(SplashActivity.this, MainActivity.class);
+
+                    startActivity(i);
+                }
 
 
 

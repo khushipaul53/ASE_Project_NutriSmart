@@ -96,7 +96,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:inputType="number"
-        android:hint="Height(cm)"
+        android:hint="Height(m)"
         >
 
     </EditText>
@@ -139,7 +139,7 @@
 
     </EditText>
     <Button
-        android:id="@+id/btn_create_new_user"
+        android:id="@+id/btn_new_user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"

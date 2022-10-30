@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -35,15 +36,25 @@ Spinner sp_actvity;
         et_password=findViewById(R.id.et_password);
         sp_actvity=findViewById(R.id.sp_actvity);
 
-        btn_create_new_user=findViewById(R.id.btn_create_new_user);
+
+
+        btn_create_new_user=findViewById(R.id.btn_new_user);
+
         btn_create_new_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(validate())
-                {
+//                if(validate())
+
+                    int weight=Integer.parseInt(et_weight.getText().toString());
+
+        int height=Integer.parseInt(et_height.getText().toString());
+                    int BMI=(weight)/((height)*(height));
+                    Log.d("djf",""+BMI);
+                    Bundle b=new Bundle();
+                    b.putInt("BMI",BMI);
                     Intent signup=new Intent(SignupActivity.this,HomeActvity.class);
-                    startActivity(signup);
-                }
+                    startActivity(signup,b);
+//                }
 
             }
         });
