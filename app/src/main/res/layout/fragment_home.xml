@@ -5,10 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/home_page_bg"
 
     tools:context=".ui.home.HomeFragment">
 
+    <TextView
+        android:id="@+id/Hi_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_margin="10dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        />
     <TextView
         android:id="@+id/text_home"
         android:layout_width="match_parent"
@@ -167,4 +176,33 @@ android:layout_marginTop="20dp"
 
     </TextView>
 
+    <TextView
+        android:id="@+id/tv_links_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Links for Today's Meal"
+        android:textSize="25sp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:id="@+id/tv_link1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17dp"
+        android:layout_margin="15dp"
+        >
+
+    </TextView>
+    <TextView
+        android:id="@+id/tv_link2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17dp"
+        android:layout_margin="15dp"
+        android:text="4Litres">
+
+    </TextView>
 </LinearLayout>

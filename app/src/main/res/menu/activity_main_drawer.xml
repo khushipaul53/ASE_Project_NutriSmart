@@ -14,9 +14,9 @@
             android:id="@+id/nav_expiry"
 
             android:title="Expiry" />
-        <item
-            android:id="@+id/nav_profile"
-            android:title="Profile" />
+<!--        <item-->
+<!--            android:id="@+id/nav_profile"-->
+<!--            android:title="Profile" />-->
         <item
             android:id="@+id/nav_logout"
             android:title="Logout" />

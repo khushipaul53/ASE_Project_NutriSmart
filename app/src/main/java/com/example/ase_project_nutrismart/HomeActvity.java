@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.ase_project_nutrismart.databinding.NavHeaderHomeActvityBinding;
+import com.example.ase_project_nutrismart.ui.home.HomeFragment;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -50,10 +51,15 @@ public class HomeActvity extends AppCompatActivity {
 //        ivLogout=findViewById(R.id.ivLogout);
         setSupportActionBar(binding.appBarHomeActvity.toolbar);
 
-
         editor.putString("isLogin", "200");
         editor.commit();
-
+//        Bundle bundle = new Bundle();
+//        String name=bundle.getString("name");
+//
+//        bundle.putString("name_frag",name);
+//// set Fragmentclass Arguments
+//        HomeFragment fragobj = new HomeFragment();
+//        fragobj.setArguments(bundle);
 
 
 //        nbinding.ivLogout.setOnClickListener(new View.OnClickListener() {
@@ -108,7 +114,7 @@ public class HomeActvity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.tracker, R.id.grocery, R.id.expiry,R.id.profile)
+                R.id.tracker, R.id.grocery, R.id.expiry)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home_actvity);
@@ -129,17 +135,17 @@ public class HomeActvity extends AppCompatActivity {
 
                     case R.id.nav_tracker:
 //                        navController.navigate(R.id.tracker);
-                        Toast.makeText(HomeActvity.this,"In Progress",Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(HomeActvity.this,"In Progress",Toast.LENGTH_SHORT).show();
 
                         drawer.closeDrawer(GravityCompat.START);
                         break;
 
-                    case R.id.nav_profile:
-//                        navController.navigate(R.id.profile);
-                        Toast.makeText(HomeActvity.this,"In Progress",Toast.LENGTH_SHORT).show();
-
-                        drawer.closeDrawer(GravityCompat.START);
-                        break;
+//                    case R.id.nav_profile:
+////                        navController.navigate(R.id.profile);
+//                        Toast.makeText(HomeActvity.this,"In Progress",Toast.LENGTH_SHORT).show();
+//
+//                        drawer.closeDrawer(GravityCompat.START);
+//                        break;
 
                     case R.id.nav_grocery:
 //                        navController.navigate(R.id.grocery);

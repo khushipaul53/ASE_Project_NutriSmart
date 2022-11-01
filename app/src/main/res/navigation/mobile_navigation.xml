@@ -25,11 +25,11 @@
         tools:layout="@layout/fragment_slideshow" />
 
 
-    <fragment
-        android:id="@+id/profile"
-        android:name="com.example.ase_project_nutrismart.ProfileFragment"
-        android:label="@string/menu_profile"
-        tools:layout="@layout/fragment_profile" />
+<!--    <fragment-->
+<!--        android:id="@+id/profile"-->
+<!--        android:name="com.example.ase_project_nutrismart.ProfileFragment"-->
+<!--        android:label="@string/menu_profile"-->
+<!--        tools:layout="@layout/fragment_profile" />-->
 
 
 
