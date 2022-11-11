@@ -1,6 +1,7 @@
 package com.example.ase_project_nutrismart.Retrofit;
 
 import com.example.ase_project_nutrismart.Response.LoginResponse;
+import com.example.ase_project_nutrismart.Response.PurchasedGrocery;
 import com.example.ase_project_nutrismart.Response.SignupListResponse;
 import com.example.ase_project_nutrismart.Response.SignupResponse;
 
@@ -22,5 +23,9 @@ public interface ApiInterface {
 
     @GET("/api/v1/auth/list")
     Call<List<SignupListResponse>>userList();
+
+
+    @GET("api/v1/master/getFoods")
+    Call<PurchasedGrocery>groceryList();
 
 }

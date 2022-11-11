@@ -8,13 +8,13 @@
     android:layout_margin="20dp"
     tools:context=".LoginActivity">
 
-    <ImageView
+    <pl.droidsonroids.gif.GifImageView
         android:layout_width="wrap_content"
         android:layout_height="150dp"
         android:layout_marginTop="40dp"
-        android:src="@drawable/nutrismart">
+        android:src="@drawable/login">
 
-    </ImageView>
+    </pl.droidsonroids.gif.GifImageView>
 
     <TextView
         android:layout_width="match_parent"
