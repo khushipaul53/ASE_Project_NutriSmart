@@ -149,7 +149,7 @@ public class HomeActvity extends AppCompatActivity {
 
                     case R.id.nav_grocery:
                         navController.navigate(R.id.grocery);
-                        Toast.makeText(HomeActvity.this,"In Progress",Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(HomeActvity.this,"In Progress",Toast.LENGTH_SHORT).show();
 
                         drawer.closeDrawer(GravityCompat.START); 
                         break;

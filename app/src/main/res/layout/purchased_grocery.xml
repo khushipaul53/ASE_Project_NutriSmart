@@ -1,38 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="5dp"
     app:cardCornerRadius="10dp"
     android:layout_margin="10dp"
     android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="1"
 
     >
-    <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="1">
+
 
 
 <CheckBox
+    android:id="@+id/cb_select"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="end"
+    android:buttonTint="@color/red"
     >
 
 </CheckBox>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+
     <TextView
         android:id="@+id/Tv_itemName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Item Name"
         android:gravity="center"
-        android:textSize="20dp"
+        android:textSize="17dp"
         android:padding="5dp"
         android:layout_weight="0.5"
         >
     </TextView>
-    </LinearLayout>
+            <TextView
+                android:id="@+id/Tv_Proteins"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Proteins"
+                android:gravity="center"
+                android:textSize="15dp"
+                android:padding="5dp"
+                android:layout_weight="0.5"
+                >
+            </TextView>
 
-</androidx.cardview.widget.CardView>
+            <TextView
+                android:id="@+id/Tv_Carbs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Carbs"
+                android:gravity="center"
+                android:textSize="15dp"
+                android:padding="5dp"
+                android:layout_weight="0.5"
+                >
+            </TextView>
+            <TextView
+                android:id="@+id/Tv_fats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fats"
+                android:gravity="center"
+                android:textSize="15dp"
+                android:padding="5dp"
+                android:layout_weight="0.5"
+                >
+            </TextView>
+            <TextView
+                android:id="@+id/Tv_fibres"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fibre"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:padding="5dp"
+                android:layout_weight="0.5"
+                >
+            </TextView>
+
+
+
+
+        </LinearLayout>
+
+
+</LinearLayout>

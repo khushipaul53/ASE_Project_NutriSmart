@@ -19,9 +19,16 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.ase_project_nutrismart.R;
 import com.example.ase_project_nutrismart.databinding.FragmentHomeBinding;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import lecho.lib.hellocharts.model.PieChartData;
+import lecho.lib.hellocharts.model.SliceValue;
+import lecho.lib.hellocharts.view.PieChartView;
+
 public class HomeFragment extends Fragment {
 TextView tv_link1,tv_link2,Hi_text;
-
+ProgressBar pb_water;
     String name="";
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -30,8 +37,12 @@ TextView tv_link1,tv_link2,Hi_text;
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
         tv_link1=rootView.findViewById(R.id.tv_link1);
         tv_link2=rootView.findViewById(R.id.tv_link2);
-        Hi_text=rootView.findViewById(R.id.Hi_text);
+//        Hi_text=rootView.findViewById(R.id.Hi_text);
+        pb_water = new ProgressBar(getContext());
 
+
+
+        pb_water.setMax(40);
 
         tv_link1.setMovementMethod(LinkMovementMethod.getInstance());
         tv_link1.setTextColor(getResources().getColor(R.color.blue));

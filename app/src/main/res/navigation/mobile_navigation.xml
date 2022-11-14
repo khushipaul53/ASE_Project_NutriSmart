@@ -14,7 +14,7 @@
 
     <fragment
         android:id="@+id/grocery"
-        android:name="com.example.ase_project_nutrismart.ui.gallery.GalleryFragment"
+        android:name="com.example.ase_project_nutrismart.ui.gallery.GroceryFragment"
         android:label="@string/menu_grocery"
         tools:layout="@layout/fragment_gallery" />
 

@@ -133,11 +133,12 @@ public class SignupActivity extends AppCompatActivity {
     });
 
     String[] arraySpinner = new String[]{
-            "Choose your activity level", "Sedentary - little or no exercise",
-            "Lightly active - exercise sports 1-3 times per week",
-            "Moderately active - exercise sports 3-5 times per week",
-            "Very active - hard exercise/sports 6-7 times per week",
-            "Extra active - very hard exercise/sports or physical"
+            "Choose your activity level",
+            "Sedentary",
+            "Lightly active",
+            "Moderately active",
+            "Very active",
+            "Extra active"
     };
     Spinner s = (Spinner) findViewById(R.id.sp_actvity);
     ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
