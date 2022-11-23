@@ -11,17 +11,25 @@ import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ase_project_nutrismart.Adapter.PurchasedGroceryAdapter;
+import com.example.ase_project_nutrismart.HomeActvity;
+import com.example.ase_project_nutrismart.Model.SelectedGroceryModel;
 import com.example.ase_project_nutrismart.R;
 import com.example.ase_project_nutrismart.Response.Grocery;
 import com.example.ase_project_nutrismart.Response.PurchasedGrocery;
+import com.example.ase_project_nutrismart.Response.SelectedGrocery;
+import com.example.ase_project_nutrismart.Response.SignupResponse;
 import com.example.ase_project_nutrismart.Retrofit.APIClient;
 import com.example.ase_project_nutrismart.Retrofit.ApiInterface;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,7 +42,7 @@ public class GroceryFragment extends Fragment {
     PurchasedGrocery purchasedGrocery;
     ProgressBar nDialog;
     Button submit;
-    ArrayList<String> selectedList=new ArrayList<>();
+    ArrayList<Grocery> selectedList=new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -56,15 +64,41 @@ public class GroceryFragment extends Fragment {
         return rootView;
 
 
+    }
+
+    private void sendData() {
+        Log.d("qwertyh hjjn",""+selectedList);
+        sendPurchasedGroceryApi(selectedList);
 
 
 
     }
 
-    private void sendData() {
-        Log.d("list",""+selectedList);
+    private void sendPurchasedGroceryApi(ArrayList<Grocery> selectedList) {
 
 
+        SelectedGroceryModel model=new SelectedGroceryModel();
+        model.setData(selectedList);
+        model.purchasedDate="2022-11-13";
+        model.userEmail="sd@yopmail.com";
+        Call<SelectedGrocery> send = apiInterface.sendSelectedGrocery(model);
+        send.enqueue(new Callback<SelectedGrocery>() {
+            @Override
+            public void onResponse(Call<SelectedGrocery> call, Response<SelectedGrocery> response) {
+
+                Log.d("dkfkfg",""+response.code());
+                if(response.code()==201)
+                {
+                    NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_home_actvity);
+                    navController.navigate(R.id.itemSlected);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<SelectedGrocery> call, Throwable t) {
+
+            }
+        });
 
     }
 
@@ -108,7 +142,7 @@ public class GroceryFragment extends Fragment {
 
     }
 
-    public void sendList(ArrayList<String> selectedItems) {
+    public void sendList(ArrayList<Grocery> selectedItems) {
         selectedList=selectedItems;
 
     }

@@ -21,7 +21,7 @@ public class PurchasedGroceryAdapter extends RecyclerView.Adapter<PurchasedGroce
 
     ArrayList<Grocery> groceryList;
     private ViewHolder holder;
-    ArrayList<String> selectedItems=new ArrayList<>();
+    ArrayList<Grocery> selectedItems=new ArrayList<>();
     GroceryFragment galleryFragment;
 
     public PurchasedGroceryAdapter(GroceryFragment galleryFragment, ArrayList<Grocery> groceryList) {
@@ -59,7 +59,7 @@ public class PurchasedGroceryAdapter extends RecyclerView.Adapter<PurchasedGroce
             public void onClick(View view) {
                 if(holder.cb_select.isChecked())
                 {
-                    selectedItems.add(groceryList.get(position).getFood());
+                    selectedItems.add(groceryList.get(position));
                     Log.d("selected",""+selectedItems.size());
                     galleryFragment.sendList(selectedItems);
                 }

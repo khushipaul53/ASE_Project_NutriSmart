@@ -19,6 +19,11 @@
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
+        android:id="@+id/itemSlected"
+        android:name="com.example.ase_project_nutrismart.ItemSelectedFragment"
+        tools:layout="@layout/fragment_item_selected" />
+
+    <fragment
         android:id="@+id/expiry"
         android:name="com.example.ase_project_nutrismart.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_expire"
