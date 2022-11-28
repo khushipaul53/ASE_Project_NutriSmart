@@ -48,10 +48,16 @@ ProgressBar pb_water;
         tv_link1.setTextColor(getResources().getColor(R.color.blue));
         tv_link2.setTextColor(getResources().getColor(R.color.blue));
 //        name = getArguments().getString("name");
-        Log.d("djf",""+name);
-//       if(!name.isEmpty())
-//       {
-//Hi_text.setText("HI"+ name);}
+
+//        Bundle bundle = getIntent().getExtras();
+//        Boolean b=bundle.getBoolean("isSingup");
+//        if(b){
+//        String bmi=getArguments().getString("bmi");
+//        String proteinNeeded=getArguments().getString("proteinNeeded");
+//        String carbsNeeded=getArguments().getString("carbsNeeded");
+//        String calorie=getArguments().getString("calorie");
+//Log.d("cmvnbvn",""+bmi+" "+proteinNeeded+" "+carbsNeeded+" "+calorie);
+
         tv_link1.setText("https://www.eatingwell.com/recipe/275923/creamy-chicken-noodle-soup-with-rotisserie-chicken/");
         tv_link2.setMovementMethod(LinkMovementMethod.getInstance());
         tv_link1.setOnClickListener(new View.OnClickListener() {

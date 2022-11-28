@@ -1,6 +1,8 @@
 package com.example.ase_project_nutrismart;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -17,6 +19,7 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.ase_project_nutrismart.Response.BmiResponse;
 import com.example.ase_project_nutrismart.Response.LoginResponse;
 import com.example.ase_project_nutrismart.Response.SignupListResponse;
 import com.example.ase_project_nutrismart.Response.SignupResponse;
@@ -43,6 +46,8 @@ public class SignupActivity extends AppCompatActivity {
     Button btn_create_new_user;
     Spinner sp_actvity;
     String gender = "";
+    Bundle bundle=new Bundle();
+
     int flag = 0;
     List<String> list_email = new ArrayList<>();
     RadioButton rb_female, rbMale;
@@ -79,26 +84,12 @@ public class SignupActivity extends AppCompatActivity {
                     Log.d("djf", "" + BMI);
                     Bundle b = new Bundle();
                     b.putInt("BMI", BMI);
-//                    b.putString("name",name);
-//                    for (int i = 0; i < list_email.size(); i++) {
-//                        if (et_email.getText().toString().equals(list_email.get(i))) {
-//                            flag = 1;
-//                            Toast.makeText(SignupActivity.this,
-//                                    "This email id is already registered", Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-
 
                 }
 
+                        bmiApi();
 
-//                if (flag == 0) {
-                    try {
-                        signupApi();
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-//                    }
-                }
+
 
             }
 
@@ -147,6 +138,66 @@ public class SignupActivity extends AppCompatActivity {
         s.setAdapter(adapter);
 
 }
+
+    private void bmiApi() {
+        if(rbMale.isChecked())
+        {
+            gender="Male";
+        }
+        else{
+            gender="Female";
+        }
+
+        String dob=et_dob.getText().toString();
+//        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
+//        Date birthDate = sdf.parse(dob);
+//        sdf.applyPattern("dd/mm/yyyy");
+//        String new_dob=sdf.format(birthDate);
+//Log.d("dkfd",""+new_dob);
+        int Age=getAge(dob);
+        String currentAge=Integer.toString(Age);
+        Log.d("dkfd",""+Age);
+        Call<BmiResponse> bmi = apiInterface.bmi(et_weight.getText().toString(),et_height.getText().toString(),currentAge,gender);
+   bmi.enqueue(new Callback<BmiResponse>() {
+       @Override
+       public void onResponse(Call<BmiResponse> call, Response<BmiResponse> response) {
+
+           Double bmi=response.body().data.bMI;
+           Double proteinNeeded=response.body().data.proteinNeeded;
+           Double carbsNeeded=response.body().data.carbsNeeded;
+           Double fatsNeeded=response.body().data.fatsNeeded;
+           Double calorie=response.body().data.calorie;
+
+
+bundle.putString("bmi",Double.toString(bmi));
+           bundle.putString("proteinNeeded",Double.toString(proteinNeeded));
+           bundle.putString("carbsNeeded",Double.toString(carbsNeeded));
+           bundle.putString("fatsNeeded",Double.toString(fatsNeeded));
+           bundle.putString("calorie",Double.toString(calorie));
+
+
+           try {
+               signupApi();
+           } catch (ParseException e) {
+               e.printStackTrace();
+           }
+
+           Log.d("dkksd",""+response.code());
+
+
+
+
+
+       }
+
+       @Override
+       public void onFailure(Call<BmiResponse> call, Throwable t) {
+
+       }
+   });
+
+    }
+
 //    private void userlistApi() {
 //        Call<List<SignupListResponse>> list = apiInterface.userList();
 //        list.enqueue(new Callback<List<SignupListResponse>>() {
@@ -186,6 +237,7 @@ public class SignupActivity extends AppCompatActivity {
         String name=et_name.getText().toString();
         String username=et_name.getText().toString();
         String dob=et_dob.getText().toString();
+
 //        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
 //        Date birthDate = sdf.parse(dob);
 //        sdf.applyPattern("dd/mm/yyyy");
@@ -224,8 +276,13 @@ Log.d("dkfd",""+Age);
                 }
                 else if(signupResponse.getMessage().equalsIgnoreCase("User registered successfully")){
                     Toast.makeText(SignupActivity.this,"User is logged in successfully",Toast.LENGTH_SHORT).show();
+//                    HomeFragment fragobj = new HomeFragment();
+//                    fragobj.setArguments(bundle);
+//
                     Intent signup = new Intent(SignupActivity.this, HomeActvity.class);
+//                    bundle.putBoolean("isSingup",true);
                       startActivity(signup);
+
                 }
 
 //                Log.d("qwertyyyyy", "" + response.message());

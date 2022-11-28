@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
@@ -53,53 +54,24 @@ public class HomeActvity extends AppCompatActivity {
 
         editor.putString("isLogin", "200");
         editor.commit();
-//        Bundle bundle = new Bundle();
-//        String name=bundle.getString("name");
-//
+
+//        Bundle bundle = getIntent().getExtras();
+//        Boolean b=bundle.getBoolean("isSingup");
+//        if(b){
+//        String bmi=bundle.getString("bmi");
+//        String proteinNeeded=bundle.getString("proteinNeeded");
+//        String carbsNeeded=bundle.getString("carbsNeeded");
+//        String calorie=bundle.getString("calorie");
+//Log.d("cmvnbvn",""+bmi+" "+proteinNeeded+" "+carbsNeeded+" "+calorie);}
+
+
+
 //        bundle.putString("name_frag",name);
-//// set Fragmentclass Arguments
+// set Fragment   class Arguments
 //        HomeFragment fragobj = new HomeFragment();
 //        fragobj.setArguments(bundle);
 
 
-//        nbinding.ivLogout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                AlertDialog.Builder builder = new AlertDialog.Builder(HomeActvity.this);
-//
-//                builder.setTitle("Confirm");
-//                builder.setMessage("Are you sure?");
-//
-//                builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
-//
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        // Do nothing but close the dialog
-//
-//
-//                        Intent intent=new Intent(HomeActvity.this,MainActivity.class);
-//                        startActivity(intent);
-//                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(HomeActvity.this);
-//                        SharedPreferences.Editor editor = prefs.edit();
-//                        editor.putBoolean("LOGIN",true);
-//                        dialog.dismiss();
-//                    }
-//                });
-//
-//                builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
-//
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//
-//                        // Do nothing
-//                        dialog.dismiss();
-//                    }
-//                });
-//
-//                AlertDialog alert = builder.create();
-//                alert.show();
-//            }
-//        });
 
         binding.appBarHomeActvity.fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,7 +108,6 @@ public class HomeActvity extends AppCompatActivity {
                     case R.id.nav_tracker:
 //                        navController.navigate(R.id.tracker);
 //                        Toast.makeText(HomeActvity.this,"In Progress",Toast.LENGTH_SHORT).show();
-
                         drawer.closeDrawer(GravityCompat.START);
                         break;
 

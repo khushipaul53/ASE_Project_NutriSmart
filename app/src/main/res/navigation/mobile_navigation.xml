@@ -25,9 +25,9 @@
 
     <fragment
         android:id="@+id/expiry"
-        android:name="com.example.ase_project_nutrismart.ui.slideshow.SlideshowFragment"
+        android:name="com.example.ase_project_nutrismart.ui.slideshow.ExpireFragment"
         android:label="@string/menu_expire"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_expire" />
 
 
 <!--    <fragment-->

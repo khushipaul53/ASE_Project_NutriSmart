@@ -16,12 +16,14 @@
         <entry key="app/src/main/res/layout/dialog.xml" value="0.13697916666666668" />
         <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.13697916666666668" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_item_selected.xml" value="0.13697916666666668" />
         <entry key="app/src/main/res/layout/fragment_my_dialog.xml" value="0.1390625" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_slideshow.xml" value="0.10625" />
         <entry key="app/src/main/res/layout/nav_header.xml" value="0.9392857142857143" />
         <entry key="app/src/main/res/layout/nav_header_home_actvity.xml" value="0.13697916666666668" />
         <entry key="app/src/main/res/layout/purchased_grocery.xml" value="0.13697916666666668" />
+        <entry key="app/src/main/res/layout/selected_grocery_items.xml" value="0.13697916666666668" />
         <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.25" />
         <entry key="app/src/main/res/menu/home_actvity.xml" value="0.13697916666666668" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.147" />

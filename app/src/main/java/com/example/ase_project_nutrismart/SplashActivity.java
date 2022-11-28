@@ -34,9 +34,11 @@ public class SplashActivity extends AppCompatActivity {
                 // This method will be executed once the timer is over
                 // Start your app main activity
                 if (pref.getString("isLogin","").equals("200")) {
-                    Intent i = new Intent(SplashActivity.this,HomeActvity.class);
 
-                    startActivity(i);
+                    Intent i = new Intent(SplashActivity.this,HomeActvity.class);
+                    Bundle bundle=new Bundle();
+                    bundle.putBoolean("isSingup",false);
+                    startActivity(i,bundle);
                 }
                 else{
 
