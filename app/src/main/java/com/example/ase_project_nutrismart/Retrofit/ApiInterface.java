@@ -43,6 +43,7 @@ public interface ApiInterface {
     @GET("api/v1/master/getFoods")
     Call<PurchasedGrocery>groceryList();
 
+
     @POST("/api/v1/application/selectedgrocery")
     Call<SelectedGrocery>sendSelectedGrocery(@Body SelectedGroceryModel model);
 

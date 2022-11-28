@@ -100,8 +100,8 @@ public class HomeActvity extends AppCompatActivity {
 
                 switch (id){
                     case R.id.nav_expiry:
-//                        navController.navigate(R.id.expiry);
-                        Toast.makeText(HomeActvity.this,"In Progress",Toast.LENGTH_SHORT).show();
+                        navController.navigate(R.id.expiry);
+//                        Toast.makeText(HomeActvity.this,"In Progress",Toast.LENGTH_SHORT).show();
                         drawer.closeDrawer(GravityCompat.START);
                         break;
 

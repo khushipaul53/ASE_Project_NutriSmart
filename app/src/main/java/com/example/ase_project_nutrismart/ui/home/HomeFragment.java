@@ -17,7 +17,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.ase_project_nutrismart.R;
-import com.example.ase_project_nutrismart.databinding.FragmentHomeBinding;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +57,7 @@ ProgressBar pb_water;
 //        String calorie=getArguments().getString("calorie");
 //Log.d("cmvnbvn",""+bmi+" "+proteinNeeded+" "+carbsNeeded+" "+calorie);
 
-        tv_link1.setText("https://www.eatingwell.com/recipe/275923/creamy-chicken-noodle-soup-with-rotisserie-chicken/");
+        tv_link1.setText("Paneer + Egg+ Milk");
         tv_link2.setMovementMethod(LinkMovementMethod.getInstance());
         tv_link1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,7 +67,7 @@ ProgressBar pb_water;
 
             }
         });
-        tv_link2.setText("https://www.eatingwell.com/recipe/270514/really-green-smoothie/");
+        tv_link2.setText("Butter milk+ Custurd +Fruits");
         tv_link2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

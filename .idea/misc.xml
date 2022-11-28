@@ -14,6 +14,8 @@
         <entry key="app/src/main/res/layout/app_bar_home_actvity.xml" value="0.13697916666666668" />
         <entry key="app/src/main/res/layout/content_home_actvity.xml" value="0.13697916666666668" />
         <entry key="app/src/main/res/layout/dialog.xml" value="0.13697916666666668" />
+        <entry key="app/src/main/res/layout/expire_item_list.xml" value="0.11510416666666666" />
+        <entry key="app/src/main/res/layout/fragment_expire.xml" value="0.17708333333333334" />
         <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.13697916666666668" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_item_selected.xml" value="0.13697916666666668" />
