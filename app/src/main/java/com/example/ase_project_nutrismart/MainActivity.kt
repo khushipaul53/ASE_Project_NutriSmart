@@ -1,19 +1,8 @@
 package com.example.ase_project_nutrismart
 
-import androidx.navigation.ui.AppBarConfiguration.Builder.setOpenableLayout
-import androidx.navigation.ui.AppBarConfiguration.Builder.build
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
-import androidx.navigation.NavController.navigate
-import androidx.navigation.ui.NavigationUI.navigateUp
+
 import com.example.ase_project_nutrismart.Retrofit.APIClient.client
-import com.example.ase_project_nutrismart.Model.SelectedGroceryModel.data
-import com.example.ase_project_nutrismart.Retrofit.ApiInterface.sendSelectedGrocery
-import com.example.ase_project_nutrismart.Response.SelectedGrocery.data
-import com.example.ase_project_nutrismart.Retrofit.ApiInterface.login
-import com.example.ase_project_nutrismart.Retrofit.ApiInterface.bmi
-import com.example.ase_project_nutrismart.Retrofit.ApiInterface.signup
-import com.example.ase_project_nutrismart.Response.SignupResponse.message
+
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.ui.AppBarConfiguration
 import android.content.SharedPreferences
@@ -56,17 +45,18 @@ import android.widget.Button
 import com.example.ase_project_nutrismart.MainActivity
 
 class MainActivity : AppCompatActivity() {
-    var apiInterface: ApiInterface? = null
-    var btn_create_new_user: Button? = null
-    var btn_login: Button? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        var btn_create_new_user:Button
+        var btn_login:Button
+
         btn_create_new_user = findViewById(R.id.btn_create_new_user)
         btn_login = findViewById(R.id.btn_login)
         val b = Bundle()
         b.getString("isLogin")
-        apiInterface = client!!.create(ApiInterface::class.java)
+       var apiInterface = client!!.create(ApiInterface::class.java)
         btn_create_new_user.setOnClickListener(View.OnClickListener {
             val signup = Intent(this@MainActivity, SignupActivity::class.java)
             startActivity(signup, b)

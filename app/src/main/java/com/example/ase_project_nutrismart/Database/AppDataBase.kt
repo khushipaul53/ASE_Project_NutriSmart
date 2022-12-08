@@ -19,13 +19,13 @@ abstract class AppDataBase : RoomDatabase() {
 
     //    AppDataBase db = Room.databaseBuilder(,
     //            AppDataBase.class, "database-name").build();
-    override fun createOpenHelper(config: DatabaseConfiguration): SupportSQLiteOpenHelper {
-        return null
-    }
-
-    override fun createInvalidationTracker(): InvalidationTracker {
-        return null
-    }
+//    override fun createOpenHelper(config: DatabaseConfiguration): SupportSQLiteOpenHelper {
+//        return null
+//    }
+//
+//    override fun createInvalidationTracker(): InvalidationTracker {
+//        return null
+//    }
 
     override fun clearAllTables() {}
 }

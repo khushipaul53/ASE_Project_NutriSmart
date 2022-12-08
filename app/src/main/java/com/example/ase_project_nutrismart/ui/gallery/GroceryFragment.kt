@@ -1,11 +1,9 @@
 package com.example.ase_project_nutrismart.ui.gallery
 
 import com.example.ase_project_nutrismart.Retrofit.APIClient.client
-import com.example.ase_project_nutrismart.Model.SelectedGroceryModel.data
-import com.example.ase_project_nutrismart.Retrofit.ApiInterface.sendSelectedGrocery
+
 import androidx.navigation.Navigation.findNavController
-import androidx.navigation.NavController.navigate
-import com.example.ase_project_nutrismart.Retrofit.ApiInterface.groceryList
+
 import com.example.ase_project_nutrismart.Response.Grocery
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ase_project_nutrismart.Retrofit.ApiInterface
@@ -31,12 +29,12 @@ import retrofit2.Response
 import java.util.ArrayList
 
 class GroceryFragment : Fragment() {
-    var groceryList: ArrayList<Grocery>? = ArrayList()
-    var rvPurchased: RecyclerView? = null
-    var apiInterface: ApiInterface? = null
-    var purchasedGrocery: PurchasedGrocery? = null
-    var nDialog: ProgressBar? = null
-    var submit: Button? = null
+    lateinit var groceryList: ArrayList<Grocery>
+    lateinit var  rvPurchased: RecyclerView
+    lateinit var  apiInterface: ApiInterface
+    lateinit var  purchasedGrocery: PurchasedGrocery
+    lateinit var  nDialog: ProgressBar
+    lateinit var  submit: Button
     var selectedList = ArrayList<Grocery>()
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -92,14 +90,14 @@ class GroceryFragment : Fragment() {
         //               }
         private get() {
             val call = apiInterface!!.groceryList()
-            call!!.enqueue(object : Callback<PurchasedGrocery> {
+            call!!.enqueue(object : Callback<PurchasedGrocery?> {
                 override fun onResponse(
-                    call: Call<PurchasedGrocery>,
-                    response: Response<PurchasedGrocery>
+                    call: Call<PurchasedGrocery?>,
+                    response: Response<PurchasedGrocery?>
                 ) {
 //                purchasedGrocery=response.body().getData();
                     val data = ArrayList<Grocery>()
-                    groceryList = response.body().data
+                    groceryList = response.body()!!.data!!
                     Log.d("dfkgg", "fk" + data.size)
                     nDialog!!.visibility = View.VISIBLE
                     val adapter = PurchasedGroceryAdapter(this@GroceryFragment, groceryList!!)
@@ -116,7 +114,7 @@ class GroceryFragment : Fragment() {
                     nDialog!!.visibility = View.GONE
                 }
 
-                override fun onFailure(call: Call<PurchasedGrocery>, t: Throwable) {}
+                override fun onFailure(call: Call<PurchasedGrocery?>, t: Throwable) {}
             })
         }
 

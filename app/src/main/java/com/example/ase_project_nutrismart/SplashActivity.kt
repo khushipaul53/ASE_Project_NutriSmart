@@ -1,19 +1,6 @@
 package com.example.ase_project_nutrismart
 
-import androidx.navigation.ui.AppBarConfiguration.Builder.setOpenableLayout
-import androidx.navigation.ui.AppBarConfiguration.Builder.build
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
-import androidx.navigation.NavController.navigate
-import androidx.navigation.ui.NavigationUI.navigateUp
-import com.example.ase_project_nutrismart.Retrofit.APIClient.client
-import com.example.ase_project_nutrismart.Model.SelectedGroceryModel.data
-import com.example.ase_project_nutrismart.Retrofit.ApiInterface.sendSelectedGrocery
-import com.example.ase_project_nutrismart.Response.SelectedGrocery.data
-import com.example.ase_project_nutrismart.Retrofit.ApiInterface.login
-import com.example.ase_project_nutrismart.Retrofit.ApiInterface.bmi
-import com.example.ase_project_nutrismart.Retrofit.ApiInterface.signup
-import com.example.ase_project_nutrismart.Response.SignupResponse.message
+
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.ui.AppBarConfiguration
 import android.content.SharedPreferences
@@ -54,12 +41,14 @@ import com.example.ase_project_nutrismart.Response.SignupResponse
 import android.os.Looper
 import com.example.ase_project_nutrismart.MainActivity
 
-class SplashActivity : AppCompatActivity() {
-    var pref: SharedPreferences? = null
+ class SplashActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-        pref = getSharedPreferences("PREFS", MODE_PRIVATE)
+
+
+        var pref = getSharedPreferences("PREFS", MODE_PRIVATE)
         val editor = pref.edit()
 
 //        editor.putString("isLogin", "0");
@@ -67,12 +56,12 @@ class SplashActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({ // This method will be executed once the timer is over
             // Start your app main activity
             if (pref.getString("isLogin", "") == "200") {
-                val i = Intent(this@SplashActivity, HomeActvity::class.java)
+                val i = Intent(this, HomeActvity::class.java)
                 val bundle = Bundle()
                 bundle.putBoolean("isSingup", false)
                 startActivity(i, bundle)
             } else {
-                val i = Intent(this@SplashActivity, MainActivity::class.java)
+                val i = Intent(this, MainActivity::class.java)
                 startActivity(i)
             }
 

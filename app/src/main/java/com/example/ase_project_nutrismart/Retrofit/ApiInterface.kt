@@ -1,13 +1,6 @@
 package com.example.ase_project_nutrismart.Retrofit
 
-import okhttp3.logging.HttpLoggingInterceptor.setLevel
-import okhttp3.OkHttpClient.Builder.addInterceptor
-import okhttp3.OkHttpClient.Builder.build
-import retrofit2.Retrofit
-import okhttp3.logging.HttpLoggingInterceptor
-import okhttp3.OkHttpClient
-import com.example.ase_project_nutrismart.Retrofit.APIClient
-import retrofit2.converter.gson.GsonConverterFactory
+
 import com.example.ase_project_nutrismart.Response.LoginResponse
 import com.example.ase_project_nutrismart.Response.SignupResponse
 import com.example.ase_project_nutrismart.Response.BmiResponse

@@ -13,10 +13,10 @@ import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 
 class HomeFragment : Fragment() {
-    var tv_link1: TextView? = null
-    var tv_link2: TextView? = null
-    var Hi_text: TextView? = null
-    var pb_water: ProgressBar? = null
+    lateinit var tv_link1: TextView
+    lateinit var tv_link2: TextView
+    lateinit var Hi_text: TextView
+    lateinit var pb_water: ProgressBar
     var name = ""
     override fun onCreateView(
         inflater: LayoutInflater,

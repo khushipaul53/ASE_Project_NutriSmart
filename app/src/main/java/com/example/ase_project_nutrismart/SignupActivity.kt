@@ -1,19 +1,8 @@
 package com.example.ase_project_nutrismart
 
-import androidx.navigation.ui.AppBarConfiguration.Builder.setOpenableLayout
-import androidx.navigation.ui.AppBarConfiguration.Builder.build
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
-import androidx.navigation.NavController.navigate
-import androidx.navigation.ui.NavigationUI.navigateUp
+
 import com.example.ase_project_nutrismart.Retrofit.APIClient.client
-import com.example.ase_project_nutrismart.Model.SelectedGroceryModel.data
-import com.example.ase_project_nutrismart.Retrofit.ApiInterface.sendSelectedGrocery
-import com.example.ase_project_nutrismart.Response.SelectedGrocery.data
-import com.example.ase_project_nutrismart.Retrofit.ApiInterface.login
-import com.example.ase_project_nutrismart.Retrofit.ApiInterface.bmi
-import com.example.ase_project_nutrismart.Retrofit.ApiInterface.signup
-import com.example.ase_project_nutrismart.Response.SignupResponse.message
+
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.ui.AppBarConfiguration
 import android.content.SharedPreferences
@@ -60,14 +49,14 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class SignupActivity : AppCompatActivity() {
-    var et_dob: EditText? = null
-    var et_name: EditText? = null
-    var et_email: EditText? = null
-    var et_height: EditText? = null
-    var et_weight: EditText? = null
-    var et_password: EditText? = null
-    var btn_create_new_user: Button? = null
-    var sp_actvity: Spinner? = null
+    lateinit var et_dob: EditText
+    lateinit var et_name: EditText
+    lateinit var et_email: EditText
+    lateinit var et_height: EditText
+    lateinit var et_weight: EditText
+    lateinit var et_password: EditText
+    lateinit var btn_create_new_user: Button
+    lateinit var sp_actvity: Spinner
     var gender = ""
     var bundle = Bundle()
     var flag = 0
@@ -159,13 +148,13 @@ class SignupActivity : AppCompatActivity() {
             currentAge,
             gender
         )
-        bmi!!.enqueue(object : Callback<BmiResponse> {
-            override fun onResponse(call: Call<BmiResponse>, response: Response<BmiResponse>) {
-                val bmi = response.body().data!!.bMI
-                val proteinNeeded = response.body().data!!.proteinNeeded
-                val carbsNeeded = response.body().data!!.carbsNeeded
-                val fatsNeeded = response.body().data!!.fatsNeeded
-                val calorie = response.body().data!!.calorie
+        bmi!!.enqueue(object : Callback<BmiResponse?> {
+            override fun onResponse(call: Call<BmiResponse?>, response: Response<BmiResponse?>) {
+                val bmi = response.body()!!.data!!.bMI
+                val proteinNeeded = response.body()!!.data!!.proteinNeeded
+                val carbsNeeded = response.body()!!.data!!.carbsNeeded
+                val fatsNeeded = response.body()!!.data!!.fatsNeeded
+                val calorie = response.body()!!.data!!.calorie
                 bundle.putString("bmi", java.lang.Double.toString(bmi))
                 bundle.putString("proteinNeeded", java.lang.Double.toString(proteinNeeded))
                 bundle.putString("carbsNeeded", java.lang.Double.toString(carbsNeeded))
@@ -179,7 +168,7 @@ class SignupActivity : AppCompatActivity() {
                 Log.d("dkksd", "" + response.code())
             }
 
-            override fun onFailure(call: Call<BmiResponse>, t: Throwable) {}
+            override fun onFailure(call: Call<BmiResponse?>, t: Throwable) {}
         })
     }
 
@@ -239,10 +228,10 @@ class SignupActivity : AppCompatActivity() {
         data["username"] = username
         data["weight"] = weight
         val signup = apiInterface!!.signup(data)
-        signup!!.enqueue(object : Callback<SignupResponse> {
+        signup!!.enqueue(object : Callback<SignupResponse?> {
             override fun onResponse(
-                call: Call<SignupResponse>,
-                response: Response<SignupResponse>
+                call: Call<SignupResponse?>,
+                response: Response<SignupResponse?>
             ) {
                 val signupResponse = response.body()
                 //                Log.d("asdfgh",  ""+ signupResponse.getMessage());
@@ -254,7 +243,7 @@ class SignupActivity : AppCompatActivity() {
                         "Email is already taken!",
                         Toast.LENGTH_SHORT
                     ).show()
-                } else if (signupResponse.message.equals(
+                } else if (signupResponse!!.message.equals(
                         "User registered successfully",
                         ignoreCase = true
                     )
@@ -291,7 +280,7 @@ class SignupActivity : AppCompatActivity() {
 //                  }
             }
 
-            override fun onFailure(call: Call<SignupResponse>, t: Throwable) {}
+            override fun onFailure(call: Call<SignupResponse?>, t: Throwable) {}
         })
     }
 

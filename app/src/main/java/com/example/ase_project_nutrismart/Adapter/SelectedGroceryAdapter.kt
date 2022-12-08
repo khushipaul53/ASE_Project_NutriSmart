@@ -1,19 +1,18 @@
 package com.example.ase_project_nutrismart.Adapter
 
-import com.example.ase_project_nutrismart.ItemSelectedFragment
-import com.example.ase_project_nutrismart.Response.Grocery
-import androidx.recyclerview.widget.RecyclerView
-import android.view.ViewGroup
 import android.view.LayoutInflater
 import android.view.View
-import com.example.ase_project_nutrismart.R
-import android.widget.TextView
+import android.view.ViewGroup
 import android.widget.EditText
-import java.util.ArrayList
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import com.example.ase_project_nutrismart.ItemSelectedFragment
+import com.example.ase_project_nutrismart.R
+import com.example.ase_project_nutrismart.Response.Grocery
 
 class SelectedGroceryAdapter(
     var itemSelectedFragment: ItemSelectedFragment,
-    var groceryList: ArrayList<Grocery>
+    var groceryList: ArrayList<Grocery>?
 ) : RecyclerView.Adapter<SelectedGroceryAdapter.ViewHolder>() {
     private val holder: ViewHolder? = null
     var selectedItems = ArrayList<Grocery>()
@@ -39,7 +38,7 @@ class SelectedGroceryAdapter(
 //        holder.tv_carbs.setText(groceryList.get(position).getCarbs());
 //        holder.tv_fibre.setText(groceryList.get(position).getFibers());
 //        holder.tv_fats.setText(groceryList.get(position).getFat());
-        holder.tvProduct.text = "Product: " + groceryList[position].food
+        holder.tvProduct.text = "Product: " + groceryList!![position].food
 
 //
 
@@ -48,7 +47,7 @@ class SelectedGroceryAdapter(
     }
 
     override fun getItemCount(): Int {
-        return groceryList.size
+        return groceryList!!.size
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

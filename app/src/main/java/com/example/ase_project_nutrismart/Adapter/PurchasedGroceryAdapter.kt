@@ -1,16 +1,15 @@
 package com.example.ase_project_nutrismart.Adapter
 
 import android.util.Log
-import com.example.ase_project_nutrismart.ui.gallery.GroceryFragment
-import com.example.ase_project_nutrismart.Response.Grocery
-import androidx.recyclerview.widget.RecyclerView
-import android.view.ViewGroup
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.CheckBox
-import com.example.ase_project_nutrismart.R
 import android.widget.TextView
-import java.util.ArrayList
+import androidx.recyclerview.widget.RecyclerView
+import com.example.ase_project_nutrismart.R
+import com.example.ase_project_nutrismart.Response.Grocery
+import com.example.ase_project_nutrismart.ui.gallery.GroceryFragment
 
 class PurchasedGroceryAdapter(
     var galleryFragment: GroceryFragment,

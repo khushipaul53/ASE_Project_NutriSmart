@@ -1,18 +1,17 @@
 package com.example.ase_project_nutrismart.Adapter
 
-import com.example.ase_project_nutrismart.ui.slideshow.ExpireFragment
-import com.example.ase_project_nutrismart.Response.ExpireData
-import androidx.recyclerview.widget.RecyclerView
-import android.view.ViewGroup
 import android.view.LayoutInflater
 import android.view.View
-import com.example.ase_project_nutrismart.R
+import android.view.ViewGroup
 import android.widget.TextView
-import java.util.ArrayList
+import androidx.recyclerview.widget.RecyclerView
+import com.example.ase_project_nutrismart.R
+import com.example.ase_project_nutrismart.Response.ExpireData
+import com.example.ase_project_nutrismart.ui.slideshow.ExpireFragment
 
 class ExpireAdapter(var galleryFragment: ExpireFragment, var groceryList: ArrayList<ExpireData>) :
     RecyclerView.Adapter<ExpireAdapter.ViewHolder>() {
-    var selectedItems = ArrayList<ExpireData>()
+    var selectedItems =groceryList
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -30,15 +29,15 @@ class ExpireAdapter(var galleryFragment: ExpireFragment, var groceryList: ArrayL
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.tv_food.text = "Product:  Paneer"
-        holder.tv_date.text = "Purchased Date:  2022-12-12"
+        holder.tv_food.text = "Product:  "+selectedItems.get(position).food
+        holder.tv_date.text = "Expire Date:  "+selectedItems.get(position).expiryDate
 
 
 //        holder.Tv_ReqQuantity.setText(groceryList.get(position).getMeasure());
     }
 
     override fun getItemCount(): Int {
-        return 1
+        return selectedItems!!.size
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
